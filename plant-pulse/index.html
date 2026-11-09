@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101817" />
+  <meta name="description" content="Plant Pulse — a simple production insights dashboard using sample factory data." />
+  <title>Plant Pulse — Production intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Plant Pulse home"><span class="brand-mark"><i></i><i></i><i></i></span><span>plant<span class="brand-light">pulse</span></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active"><span class="nav-icon">◫</span>Overview</button>
+      <button class="nav-item" id="lineNav"><span class="nav-icon">⌁</span>Production lines</button>
+      <button class="nav-item" id="qualityNav"><span class="nav-icon">◇</span>Quality trends</button>
+      <div class="side-label second-label">YOUR PLANT</div>
+      <div class="plant-card"><span class="plant-avatar">R</span><span><b>Rosslyn plant</b><small>South Africa</small></span><span class="chevron">⌄</span></div>
+      <div class="sidebar-bottom"><div class="live-dot"></div><span>Sample data mode</span><span class="info-dot" title="This demo uses fictional data">i</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumb">Operations <span>/</span> <b>Overview</b></div><div class="top-actions"><span class="date-label"><span class="calendar">▦</span> Monday, 09 November 2026</span><button class="avatar" aria-label="Profile">JD</button></div></header>
+      <section class="intro"><div><div class="eyebrow"><span class="eyebrow-dot"></span>OPERATIONS INTELLIGENCE <span class="demo-pill">DEMO</span></div><h1>Good morning, team<span class="period">.</span></h1><p class="subhead">Here’s what’s happening across your production floor today.</p></div><div class="intro-meta"><span class="refresh-icon">↻</span><span>Last updated<br><b>08:42 CAT</b></span></div></section>
+
+      <section class="metrics" aria-label="Production key metrics">
+        <article class="metric-card"><div class="metric-top"><span>UNITS PRODUCED</span><span class="metric-icon teal">▤</span></div><div class="metric-value" id="unitsValue">1,284</div><div class="metric-foot"><span class="trend positive">↗ 8.2%</span><span>vs. yesterday</span></div><div class="sparkline" aria-hidden="true"><svg viewBox="0 0 150 35" preserveAspectRatio="none"><path d="M0 27 C18 25 20 30 35 20 S54 23 66 13 85 19 100 10 122 18 150 3"/></svg></div></article>
+        <article class="metric-card"><div class="metric-top"><span>LINE EFFICIENCY</span><span class="metric-icon gold">◉</span></div><div class="metric-value">87.4<span class="unit">%</span></div><div class="metric-foot"><span class="trend positive">↗ 2.1%</span><span>vs. yesterday</span></div><div class="sparkline gold-line" aria-hidden="true"><svg viewBox="0 0 150 35" preserveAspectRatio="none"><path d="M0 29 C18 21 24 28 40 18 S58 26 75 14 96 19 109 9 127 14 150 5"/></svg></div></article>
+        <article class="metric-card"><div class="metric-top"><span>QUALITY PASS RATE</span><span class="metric-icon lavender">◇</span></div><div class="metric-value">96.8<span class="unit">%</span></div><div class="metric-foot"><span class="trend negative">↘ 0.6%</span><span>vs. yesterday</span></div><div class="sparkline lavender-line" aria-hidden="true"><svg viewBox="0 0 150 35" preserveAspectRatio="none"><path d="M0 9 C18 15 22 7 38 12 S59 5 73 14 89 12 105 20 126 13 150 25"/></svg></div></article>
+        <article class="metric-card"><div class="metric-top"><span>UNPLANNED DOWNTIME</span><span class="metric-icon coral">◷</span></div><div class="metric-value">42<span class="unit"> min</span></div><div class="metric-foot"><span class="trend negative">↗ 12 min</span><span>vs. yesterday</span></div><div class="sparkline coral-line" aria-hidden="true"><svg viewBox="0 0 150 35" preserveAspectRatio="none"><path d="M0 27 C18 25 25 18 38 22 S56 10 70 19 90 7 106 15 129 4 150 3"/></svg></div></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel production-panel"><div class="panel-heading"><div><h2>Production output</h2><p>Units completed per hour · today</p></div><button class="select-control" id="periodButton">Today <span>⌄</span></button></div><div class="chart-legend"><span><i class="legend-dot"></i>Actual output</span><span><i class="legend-line"></i>Target (120 units/hr)</span></div><div class="chart-wrap"><div class="y-labels"><span>160</span><span>120</span><span>80</span><span>40</span><span>0</span></div><div class="plot"><div class="grid-lines"><i></i><i></i><i></i><i></i><i></i></div><div class="target-line"><span>120</span></div><div class="bars" id="bars"></div><div class="x-labels"><span>06:00</span><span>07:00</span><span>08:00</span><span>09:00</span><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span><span>14:00</span><span>15:00</span><span>16:00</span><span>17:00</span></div></div></div><div class="chart-note"><span class="note-mark">↗</span><span>Output is <b>8.2% higher</b> than yesterday at this time.</span></div></article>
+
+        <article class="panel insight-panel"><div class="insight-head"><div class="ai-mark"><span>✳</span></div><div><div class="insight-kicker">PULSE INSIGHTS <span>✦</span></div><h2>Worth a closer look</h2></div><span class="insight-count">01</span></div><div class="insight-body"><div class="severity"><span></span>QUALITY ALERT</div><h3>Line 2 quality dipped after the 10:00 shift change.</h3><p>Rejects rose from <b>2.1%</b> to <b>5.4%</b> in the two hours after handover. That’s 18 more units than the morning average.</p><div class="insight-evidence"><div><span class="evidence-dot purple"></span><span>Before handover</span><b>2.1% rejects</b></div><div><span class="evidence-dot orange"></span><span>After handover</span><b>5.4% rejects</b></div></div><div class="suggestion"><span>↗</span><span>Check the Line 2 setup checklist with the next shift lead.</span></div></div><div class="insight-footer"><span>Pattern found in sample data</span><button id="explainButton">How did we spot this? <span>↗</span></button></div></article>
+      </section>
+
+      <section class="panel lines-panel"><div class="panel-heading lines-heading"><div><h2>Production lines</h2><p>Live status across today’s active lines</p></div><button class="text-button" id="allLinesButton">View all lines <span>→</span></button></div><div class="table-wrap"><table><thead><tr><th>LINE</th><th>STATUS</th><th>OUTPUT</th><th>EFFICIENCY</th><th>QUALITY</th><th>SHIFT LEAD</th><th></th></tr></thead><tbody id="lineRows"></tbody></table></div><div class="table-footer"><span>Showing <b>4</b> of 8 production lines</span><span class="updated-dot"></span><span>Data refreshes every 15 minutes</span></div></section>
+      <footer class="page-footer"><span>Plant Pulse <span>·</span> An independent portfolio project</span><span>All data is fictional and for demonstration only.</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <dialog id="explainDialog"><button class="dialog-close" id="closeDialog" aria-label="Close">×</button><div class="eyebrow"><span class="eyebrow-dot"></span>INSIGHT EXPLAINED</div><h2>Simple rules, clear reasons.</h2><p>This demo compares the quality reject rate before and after a shift handover. When the after-handover rate is more than 2 percentage points higher, it highlights the change for a person to investigate.</p><div class="formula">5.4% after − 2.1% before = <b>+3.3 percentage points</b></div><p class="dialog-small">This is a transparent rule-based demo, not a trained AI model or live BMW system. It suggests where to look; a person decides what to do.</p><button class="dialog-done" id="doneDialog">Got it</button></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
